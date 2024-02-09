@@ -67,10 +67,10 @@ def gasken(query, args):
         for maxpage in range(1, int(args.maxpage)+1):
             results = searcher(query=query, maxpage=maxpage, country=args.country, language=args.language, perpage=args.perpage)
             if "invalid-apikey" == results:
-                print("[SEARCH] Your apikey is invalid, recheck configuration.yaml")
+                print(f"[SEARCH] Your apikey is invalid, recheck {file_config}")
                 return
             elif "not-enough-credits" == results:
-                print("[SEARCH] Not enough credits, recheck configuration.yaml")
+                print(f"[SEARCH] Not enough credits, recheck {file_config}")
                 return
             elif not results:
                 print(f"[SEARCH] Maxpage or result not found with query ({query}) in page {maxpage}")
@@ -107,9 +107,9 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("-ql", "--query-list", dest="querylist", required=True, help="Input file with a list of query")
     parser.add_argument("-t", "--threads", dest="numthread", type=int, required=True, help="Number of threads")
-    parser.add_argument("-o", "--output", dest="saveoutput", required=False, help="Output file to write found link")
+    parser.add_argument("-o", "--output", dest="saveoutput", required=False, help="Output file to write found links")
     parser.add_argument("-exdom", "--extract-domain", dest="exdomain", required=False, action='store_true', help="Extract and filter unique domains")
-    parser.add_argument("-maxpage", "--maxpage", dest="maxpage", required=False, help="Set the maximum page number (default: max of the page or 20 page)", default="20")
+    parser.add_argument("-maxpage", "--maxpage", dest="maxpage", required=False, help="Set the maximum page number (default: max of the page or 20 pages)", default="20")
     parser.add_argument("-perpage", "--perpage", dest="perpage", required=False, help="Set result urls per page (default: 100)", default="100")
     parser.add_argument("-country", "--country", dest="country", required=False, help="Set search by country (default: us)", default="us")
     parser.add_argument("-language", "--language", dest="language", required=False, help="Set search by language (default: en)", default="en")
