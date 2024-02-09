@@ -41,11 +41,11 @@ options:
   -t NUMTHREAD, --threads NUMTHREAD
                         Number of threads
   -o SAVEOUTPUT, --output SAVEOUTPUT
-                        Output file to write found link
+                        Output file to write found links
   -exdom, --extract-domain
                         Extract and filter unique domains
   -maxpage MAXPAGE, --maxpage MAXPAGE
-                        Set the maximum page number (default: max of the page or 20 page)
+                        Set the maximum page number (default: max of the page or 20 pages)
   -perpage PERPAGE, --perpage PERPAGE
                         Set result urls per page (default: 100)
   -country COUNTRY, --country COUNTRY
